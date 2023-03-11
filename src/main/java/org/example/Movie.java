@@ -6,8 +6,9 @@ class Movie extends TVShow {
     /*
      *Movie is extended from TVShow and has extra attribute length.
      */
-    public Movie()
+    public Movie(String title,String genre,int releaseYear,double imdbScore,double duration, ArrayList<String> cast)
     {
-        super();
+        super(title,genre,releaseYear,imdbScore,duration, cast);
     }
+
 }
