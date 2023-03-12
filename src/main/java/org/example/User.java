@@ -67,6 +67,9 @@ class User {
     public void viewFavorites() {
         System.out.println(favTvShow);
     }
+    public void viewWatchedHistory(){
+        System.out.println(watchedTvShow);
+    }
     public ArrayList<ArrayList<TVShow>> getRecommendations(NetflixService tvShowList) {
         //base on fav(genre) and watched
         ArrayList<String> genreOfFav = new ArrayList<>();
