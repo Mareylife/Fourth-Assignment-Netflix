@@ -6,9 +6,9 @@ class User {
     private String username;
     private String password;
 
-    private ArrayList<TVShow> favTvShow ;
+    public ArrayList<TVShow> favTvShow  = new ArrayList<>();
 
-    private ArrayList<TVShow> watchedTvShow;
+    public ArrayList<TVShow> watchedTvShow = new ArrayList<>();
 
     public User(String username,String password){
         this.username = username;
@@ -70,7 +70,7 @@ class User {
     public void viewWatchedHistory(){
         System.out.println(watchedTvShow);
     }
-    public ArrayList<ArrayList<TVShow>> getRecommendations(NetflixService tvShowList) {
+    public ArrayList<ArrayList<TVShow>> getRecommendations(NetflixService netflix) {
         //base on fav(genre) and watched
         ArrayList<String> genreOfFav = new ArrayList<>();
         for (int i = 0; i < favTvShow.size(); i++) {
@@ -84,7 +84,7 @@ class User {
 
         ArrayList<ArrayList<TVShow>> recommendation = new ArrayList<>();
         for (int i = 0; i < genreOfWatched.size(); i++) {
-            recommendation.add(tvShowList.searchByGenre(genreOfWatched.get(i)));
+            recommendation.add(netflix.searchByGenre(genreOfWatched.get(i)));
         }
         return recommendation;
 

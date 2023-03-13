@@ -5,11 +5,12 @@ import java.util.Objects;
 
 class NetflixService {
     User currentUser;
-    public ArrayList<User> users;
-    public ArrayList<TVShow> tvShows;
-    public ArrayList<Movie> movies;
+    public ArrayList<User> users  = new ArrayList<>();
+    public ArrayList<TVShow> tvShows = new ArrayList<>();
+    public ArrayList<Movie> movies = new ArrayList<>();
     public NetflixService()
     {
+
     }
     /*
      *The NetflixService should have an Arraylist of users, tv shows and movies.
@@ -47,10 +48,12 @@ class NetflixService {
                         return true;
                     }
                     else {
+                        System.err.println("password isn't correct ! ");
                         return false;
                     }
                 }
                 else {
+                    System.err.println("this username doesn't exist");
                     return false;
                 }
             }
