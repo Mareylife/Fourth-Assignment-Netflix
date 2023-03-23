@@ -64,13 +64,13 @@ class User {
     public void addToFavorites(TVShow show) {
         favTvShow.add(show);
     }
-    public void viewFavorites() {
-        System.out.println(favTvShow);
+    public ArrayList<TVShow> viewFavorites() {
+        return favTvShow;
     }
-    public void viewWatchedHistory(){
-        System.out.println(watchedTvShow);
+    public ArrayList<TVShow> viewWatchedHistory(){
+        return watchedTvShow;
     }
-    public ArrayList<ArrayList<TVShow>> getRecommendations(NetflixService netflix) {
+    /*public ArrayList<TVShow> getRecommendations(NetflixService netflix) {
         //base on fav(genre) and watched
         ArrayList<String> genreOfFav = new ArrayList<>();
         for (int i = 0; i < favTvShow.size(); i++) {
@@ -82,13 +82,13 @@ class User {
         }
         genreOfWatched.addAll(genreOfFav);
 
-        ArrayList<ArrayList<TVShow>> recommendation = new ArrayList<>();
+        ArrayList<TVShow> recommendation = new ArrayList<>();
         for (int i = 0; i < genreOfWatched.size(); i++) {
             recommendation.add(netflix.searchByGenre(genreOfWatched.get(i)));
         }
         return recommendation;
 
-    }
+    }*/
 
     public String getUsername() {
         return username;

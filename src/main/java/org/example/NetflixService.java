@@ -1,7 +1,5 @@
 package org.example;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
 class NetflixService {
     User currentUser;
@@ -37,6 +35,26 @@ class NetflixService {
         Movie Dune = new Movie("Dune","Sci-Fi",2021,8.0,155);
         Movie HungerGames = new Movie("Hunger Games","Sci-Fi",2012,7.2,142);
 
+        //add to list
+        movies.add(HarryPotter1);
+        movies.add(HarryPotter2);
+        movies.add(HarryPotter3);
+        movies.add(HarryPotter4);
+        movies.add(HarryPotter5);
+        movies.add(HarryPotter6);
+        movies.add(HarryPotter7);
+        movies.add(HarryPotter8);
+        movies.add(Annabelle);
+        movies.add(TheConjuring);
+        movies.add(TheConjuring2);
+        movies.add(GetOut);
+        movies.add(PussInBoots);
+        movies.add(TheMenu);
+        movies.add(WeAreTheMillers);
+        movies.add(Interstellar);
+        movies.add(Dune);
+        movies.add(HungerGames);
+
         //Tv Show
         //Fantasy
         TVShow StrangerThings = new TVShow("Stranger Things","Fantasy",2014,8.7,51);
@@ -54,6 +72,19 @@ class NetflixService {
         TVShow Friends = new TVShow("Friends","Comedy",1994,8.9,2);
         TVShow BigBangTheory = new TVShow("The BigBang Theory","Comedy",2007,8.2,22);
         TVShow HowIMetYourMother = new TVShow("How I Met Your Mother", "Comedy",2005,8.3, 22);
+
+        //add to list
+        tvShows.add(StrangerThings);
+        tvShows.add(Wednesday);
+        tvShows.add(Lucifer);
+        tvShows.add(Witcher);
+        tvShows.add(Vampire);
+        tvShows.add(GameOfThrones);
+        tvShows.add(AttackOnTitan);
+        tvShows.add(TheLastOfUs);
+        tvShows.add(Friends);
+        tvShows.add(BigBangTheory);
+        tvShows.add(HowIMetYourMother);
     }
 
     /*
@@ -122,6 +153,12 @@ class NetflixService {
                 searchResult.add(tvShows.get(i));
             }
         }
+        for (int i = 0 ;i < movies.size(); i++)
+        {
+            if (movies.get(i).getTitle().contains(title)) {
+                searchResult.add(movies.get(i));
+            }
+        }
         return searchResult;
     }
 
@@ -132,6 +169,12 @@ class NetflixService {
             if(tvShows.get(i).getGenre().equals(genre))
             {
                 searchResult.add(tvShows.get(i));
+            }
+        }
+        for (int i = 0 ;i < movies.size(); i++)
+        {
+            if (movies.get(i).getGenre().equals(genre)) {
+                searchResult.add(movies.get(i));
             }
         }
         return searchResult;
@@ -146,9 +189,22 @@ class NetflixService {
                 searchResult.add(tvShows.get(i));
             }
         }
+        for (int i = 0 ;i < movies.size(); i++)
+        {
+            if (movies.get(i).getReleaseYear()==year) {
+                searchResult.add(movies.get(i));
+            }
+        }
         return searchResult;
     }
-
+    public String printList(ArrayList<TVShow> list)
+    {
+        String result = "";
+        for (int i = 0; i < list.size(); i++) {
+            result += i + "." + list.get(i).getTitle() + "\n";
+        }
+        return result;
+    }
 
 }
 

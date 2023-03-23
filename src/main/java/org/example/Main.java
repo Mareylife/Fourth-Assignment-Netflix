@@ -30,25 +30,56 @@ public class Main {
                             case (1):
                                 System.out.println("please enter the name: ");
                                 String name = input.next();
-                                netflix.searchByTitle(name);
+                                System.out.println(netflix.printList(netflix.searchByTitle(name)));
                                 System.out.println("Enter the index of your desired movie");
                                 int index = input.nextInt();
+                                while (index > netflix.searchByTitle(name).size() ){
+
+                                    System.err.println("Wrong! please enter valid value");
+                                    index = input.nextInt();
+                                }
                                 currentTvShow = netflix.searchByTitle(name).get(index);
+                                break;
 
                             case (2):
-                                System.out.println("please enter the genre: ");
-                                String genre = input.next();
-                                netflix.searchByGenre(genre);
+                                System.out.println("please Choose the genre: " + "\n" +
+                                        "1.Comedy" + "\n" + "2.Horror" + "\n" + "3.Sci-Fi" + "\n"+ "4.Action" + "\n" + "5.Fantasy");
+                                int choose = input.nextInt();
+                                String genre = "";
+                                switch (choose){
+                                    case (1) : genre = "Comedy";
+                                                break;
+                                    case (2) : genre = "Horror";
+                                                break;
+                                    case (3) : genre = "Sci-Fi";
+                                                break;
+                                    case (4) : genre = "Action";
+                                                break;
+                                    case (5) : genre = "Fantasy";
+                                }
+                                System.out.println(netflix.printList(netflix.searchByGenre(genre)));
+
                                 System.out.println("Enter the index of your desired movie");
                                 index = input.nextInt();
+                                while (index > netflix.searchByGenre(genre).size() ){
+
+                                    System.err.println("Wrong! please enter valid value");
+                                    index = input.nextInt();
+                                }
                                 currentTvShow = netflix.searchByGenre(genre).get(index);
+                                break;
 
                             case (3):
                                 System.out.println("please enter the year: ");
                                 int year = input.nextInt();
-                                netflix.searchByReleaseYear(year);
+                                System.out.println(netflix.printList(netflix.searchByReleaseYear(year)));
                                 System.out.println("Enter the index of your desired movie");
                                 index = input.nextInt();
+                                while (index > netflix.searchByReleaseYear(year).size() ){
+
+                                    System.err.println("Wrong! please enter valid value");
+                                    index = input.nextInt();
+                                }
                                 currentTvShow = netflix.searchByReleaseYear(year).get(index);
                         }
 
@@ -57,6 +88,7 @@ public class Main {
                         switch (choose) {
                             case (1):
                                 netflix.currentUser.Watch(currentTvShow);
+                                break;
                             case (2):
                                 netflix.currentUser.addToFavorites(currentTvShow);
                         }
@@ -75,23 +107,38 @@ public class Main {
                             case (1):
                                 System.out.println("please enter the name: ");
                                 String name = input.next();
-                                netflix.currentUser.searchByTitle(name);
+                                System.out.println(netflix.printList(netflix.currentUser.searchByTitle(name)));
                                 System.out.println("Enter the index of your desired movie");
                                 int index = input.nextInt();
                                 currentTvShow = netflix.currentUser.searchByTitle(name).get(index);
+                                break;
 
-                            case (2):
-                                System.out.println("please enter the genre: ");
-                                String genre = input.next();
-                                netflix.currentUser.searchByGenre(genre);
+                            case (2): ;
+                                System.out.println("please Choose the genre: " + "\n" +
+                                        "1.Comedy" + "\n" + "2.Horror" + "\n" + "3.Sci-Fi" + "\n"+ "4.Action" + "\n" + "5.Fantasy");
+                                int choose = input.nextInt();
+                                String genre = "";
+                                switch (choose){
+                                    case (1) : genre = "Comedy";
+                                        break;
+                                    case (2) : genre = "Horror";
+                                        break;
+                                    case (3) : genre = "Sci-Fi";
+                                        break;
+                                    case (4) : genre = "Action";
+                                        break;
+                                    case (5) : genre = "Fantasy";
+                                }
+                                System.out.println(netflix.printList(netflix.currentUser.searchByGenre(genre)));
                                 System.out.println("Enter the index of your desired movie");
                                 index = input.nextInt();
                                 currentTvShow = netflix.currentUser.searchByGenre(genre).get(index);
+                                break;
 
                             case (3):
                                 System.out.println("please enter the year: ");
                                 int year = input.nextInt();
-                                netflix.currentUser.searchByReleaseYear(year);
+                                System.out.println(netflix.printList(netflix.currentUser.searchByReleaseYear(year)));
                                 System.out.println("Enter the index of your desired movie");
                                 index = input.nextInt();
                                 currentTvShow = netflix.currentUser.searchByReleaseYear(year).get(index);
@@ -111,14 +158,14 @@ public class Main {
                     if (netflix.currentUser.favTvShow.isEmpty()) {
                         System.err.println("List is empty");
                     } else {
-                        netflix.currentUser.viewFavorites();
+                        System.out.println(netflix.printList(netflix.currentUser.viewFavorites()));
                     }
                 }
                 else if (number == 4) {
                     if (netflix.currentUser.watchedTvShow.isEmpty()) {
                         System.err.println("List is empty");
                     } else {
-                        netflix.currentUser.viewWatchedHistory();
+                        System.out.println(netflix.printList(netflix.currentUser.viewWatchedHistory()));
                     }
 
                 }
@@ -146,7 +193,7 @@ public class Main {
                     if (netflix.tvShows.isEmpty()) {
                         System.out.println("List is empty!");
                     } else {
-                        netflix.currentUser.getRecommendations(netflix);
+                        //netflix.currentUser.getRecommendations(netflix);;
                     }
                 }
                 else if (number == 7) {
