@@ -9,15 +9,15 @@ class TVShow {
     private double imdbScore;
     private double duration;
 
-    private ArrayList<String> cast;
+    //private ArrayList<String> cast;
 
-    public TVShow(String title,String genre,int releaseYear,double imdbScore,double duration, ArrayList<String> cast){
+    public TVShow(String title,String genre,int releaseYear,double imdbScore,int duration){
         this.title = title;
         this.genre = genre;
         this.releaseYear = releaseYear;
         this.imdbScore = imdbScore;
         this.duration = duration;
-        this.cast = cast;
+        //this.cast = cast;
     }
 
     public String getTitle() {
@@ -40,9 +40,9 @@ class TVShow {
         return duration;
     }
 
-    public ArrayList<String> getCast() {
+    /*public ArrayList<String> getCast() {
         return cast;
-    }
+    }*/
 
 
     /*
