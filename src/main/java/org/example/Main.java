@@ -219,7 +219,7 @@ public class Main {
                     if (netflix.tvShows.isEmpty()) {
                         System.out.println("List is empty!");
                     } else {
-                        netflix.currentUser.getRecommendations(netflix);
+                        System.out.println(netflix.printList(netflix.currentUser.getRecommendations(netflix)));
                     }
                 }
                 else if (number == 7) {

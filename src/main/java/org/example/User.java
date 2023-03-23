@@ -84,7 +84,9 @@ class User {
 
         ArrayList<TVShow> recommendation = new ArrayList<>();
         for (int i = 0; i < genreOfWatched.size(); i++) {
-            recommendation.add(netflix.searchByGenre(genreOfWatched.get(i)).get(i));
+            for (int j = 0; j < netflix.searchByGenre(genreOfWatched.get(i)).size(); j++) {
+                recommendation.add(netflix.searchByGenre(genreOfWatched.get(i)).get(j));
+            }
         }
         return recommendation;
     }
