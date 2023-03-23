@@ -89,6 +89,24 @@ class User {
         return recommendation;
 
     }*/
+    public ArrayList<TVShow> getRecommendations(NetflixService netflix) {
+        //base on fav(genre) and watched
+        ArrayList<String> genreOfFav = new ArrayList<>();
+        for (int i = 0; i < favTvShow.size(); i++) {
+            genreOfFav.add(favTvShow.get(i).getGenre());
+        }
+        ArrayList<String> genreOfWatched = new ArrayList<>();
+        for (int i = 0; i < watchedTvShow.size(); i++) {
+            genreOfWatched.add(watchedTvShow.get(i).getGenre());
+        }
+        genreOfWatched.addAll(genreOfFav);
+
+        ArrayList<TVShow> recommendation = new ArrayList<>();
+        for (int i = 0; i < genreOfWatched.size(); i++) {
+            recommendation.add(netflix.searchByGenre(genreOfWatched.get(i)).get(i));
+        }
+        return recommendation;
+    }
 
     public String getUsername() {
         return username;

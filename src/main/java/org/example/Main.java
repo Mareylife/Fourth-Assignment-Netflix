@@ -193,7 +193,7 @@ public class Main {
                     if (netflix.tvShows.isEmpty()) {
                         System.out.println("List is empty!");
                     } else {
-                        //netflix.currentUser.getRecommendations(netflix);;
+                        netflix.currentUser.getRecommendations(netflix);
                     }
                 }
                 else if (number == 7) {
